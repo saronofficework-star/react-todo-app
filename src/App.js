@@ -50,8 +50,22 @@ function App() {
   }, [tasks]);
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>React To-Do App 🚀</h1>
+  <div style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    background: "#f0f2f5"
+  }}>
+    <div style={{
+      background: "white",
+      padding: "30px",
+      borderRadius: "10px",
+      boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+      width: "350px",
+      textAlign: "center"
+    }}>
+      <h1>To-Do App 🚀</h1>
 
       <InputBox task={task} setTask={setTask} addTask={addTask} />
 
@@ -66,7 +80,8 @@ function App() {
         setEditText={setEditText}
       />
     </div>
-  );
+  </div>
+ );
 }
 
 export default App;

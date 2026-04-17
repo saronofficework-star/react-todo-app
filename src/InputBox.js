@@ -5,12 +5,25 @@ function InputBox({ task, setTask, addTask }) {
         value={task}
         onChange={(e) => setTask(e.target.value)}
         placeholder="Enter task"
-        style={{ padding: "10px", width: "200px" }}
+        style={{
+          padding: "10px",
+          width: "70%",
+          borderRadius: "5px",
+          border: "1px solid #ccc"
+        }}
       />
 
       <button
         onClick={addTask}
-        style={{ padding: "10px", marginLeft: "10px" }}
+        style={{
+          padding: "10px",
+          marginLeft: "10px",
+          background: "#007bff",
+          color: "white",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer"
+        }}
       >
         Add
       </button>
@@ -18,4 +31,4 @@ function InputBox({ task, setTask, addTask }) {
   );
 }
 
-export default InputBox;
+export default InputBox;s

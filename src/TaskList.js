@@ -14,10 +14,13 @@ function TaskList({
         <li
           key={index}
           style={{
-            background: "#f2f2f2",
-            margin: "5px",
+            background: "#f9f9f9",
+            margin: "8px 0",
             padding: "10px",
-            borderRadius: "5px"
+            borderRadius: "5px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center"
           }}
         >
           {editIndex === index ? (
@@ -30,20 +33,17 @@ function TaskList({
             </>
           ) : (
             <>
-              <span
-                style={{
-                  textDecoration: t.done ? "line-through" : "none",
-                  marginRight: "10px"
-                }}
-              >
+              <span style={{
+                textDecoration: t.done ? "line-through" : "none"
+              }}>
                 {t.text}
               </span>
 
-              <button onClick={() => toggleTask(index)}>Done</button>
-
-              <button onClick={() => startEdit(index)}>Edit</button>
-
-              <button onClick={() => deleteTask(index)}>Delete</button>
+              <div>
+                <button onClick={() => toggleTask(index)}>✔</button>
+                <button onClick={() => startEdit(index)}>✏️</button>
+                <button onClick={() => deleteTask(index)}>❌</button>
+              </div>
             </>
           )}
         </li>
