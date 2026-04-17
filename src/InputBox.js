@@ -31,4 +31,4 @@ function InputBox({ task, setTask, addTask }) {
   );
 }
 
-export default InputBox;s
+export default InputBox;
