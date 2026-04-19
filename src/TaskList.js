@@ -4,45 +4,64 @@ function TaskList({
   toggleTask,
   startEdit,
   saveEdit,
-  editIndex,
+  editId,
   editText,
   setEditText
 }) {
   return (
     <ul style={{ listStyle: "none", padding: 0 }}>
-      {tasks.map((t, index) => (
+      {tasks.map((t) => (
         <li
-          key={index}
+          key={t._id}
           style={{
-            background: "#f9f9f9",
-            margin: "8px 0",
-            padding: "10px",
-            borderRadius: "5px",
+            background: "#f5f7fa",
+            margin: "10px 0",
+            padding: "12px",
+            borderRadius: "8px",
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center"
+            alignItems: "center",
+            transition: "0.2s"
           }}
         >
-          {editIndex === index ? (
+          {editId === t._id ? (
             <>
               <input
                 value={editText}
                 onChange={(e) => setEditText(e.target.value)}
+                style={{
+                  padding: "6px",
+                  borderRadius: "5px",
+                  border: "1px solid #ccc"
+                }}
               />
-              <button onClick={() => saveEdit(index)}>Save</button>
+              <button onClick={() => saveEdit(t._id)}>Save</button>
             </>
           ) : (
             <>
               <span style={{
-                textDecoration: t.done ? "line-through" : "none"
+                textDecoration: t.done ? "line-through" : "none",
+                color: t.done ? "gray" : "black"
               }}>
                 {t.text}
               </span>
 
               <div>
-                <button onClick={() => toggleTask(index)}>✔</button>
-                <button onClick={() => startEdit(index)}>✏️</button>
-                <button onClick={() => deleteTask(index)}>❌</button>
+                <button
+                  onClick={() => toggleTask(t._id)}
+                  style={{ marginRight: "5px" }}
+                >
+                  ✔
+                </button>
+
+                <button
+                  onClick={() => startEdit(t._id)}
+                  style={{ marginRight: "5px" }}
+                >
+                  ✏️
+                </button>
+
+                <button onClick={() => deleteTask(t._id)}>❌</button>
               </div>
             </>
           )}
